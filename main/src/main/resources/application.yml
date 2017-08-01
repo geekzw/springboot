@@ -1,0 +1,83 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:32768/blog
+    username: root
+    password: root
+  thymeleaf:
+    mode: LEGACYHTML5
+
+  dubbo:
+    application:
+      name: consumer
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: com.gzw.dubbo.service.serviceImpl
+
+
+
+  jpa:
+      hibernate:
+        ddl-auto: update #重新启动项目更新表不删除数据  create：每次启动重新建表，删除数据
+      show-sql: true
+
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+  redis:
+    database: 0
+    host: localhost
+    port: 32769
+    pool:
+      max-idle: 8
+      max-active: 8
+      min-idle: 0
+      max-wait: -1
+      max-total: 100
+      block-when-exhausted: true
+  mail:
+    host: smtp.163.com
+    username: geekzw@163.com
+    password: gzw403
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+            required: false
+    port:
+
+
+server:
+  port: 8080
+#  ssl:
+#    key-store: keystore.p12
+#    key-store-password: 888888
+#    keyStoreType: PKCS12
+#  context-path: /
+
+  tomcat:
+    uri-encoding: UTF-8
+
+mybatis:
+  type-aliases-package: com.gzw.domain
+  mapper-locations: classpath:mappers/*.xml
+
+endpoints:
+  health:
+    sensitive: false
+
+
+
+project:
+  basedir: /Users/gujian/ideaProjects/springboot/server
+
+
+
+
+
+
